@@ -1,5 +1,5 @@
 const audio = new Audio();
-let isPlayClicked = true;
+// let isPlayClicked = true;
 
 function play(){
     // if(isPlayClicked == false) return;
@@ -29,7 +29,6 @@ function keyUpEvent(e){
     const currentAlphabet = document.getElementById('random-alpha');
     const currentKey = currentAlphabet.innerText;
     const expectedKey = currentKey.toLowerCase();
-    console.log(pressedKey, expectedKey)
 
     if( pressedKey === expectedKey){
 

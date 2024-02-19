@@ -25,6 +25,7 @@ function removeBackgroundColorById(elementId){
     element.classList.remove('bg-orange-400')
 }
 
+
 function getValue(elementId){
     const element = document.getElementById(elementId);
     const currentElementText = element.innerText;
@@ -52,7 +53,6 @@ function getARandomAlphabet(){
 
 function gameOver(){
     document.removeEventListener('keyup', keyUpEvent);
-
     hideElement('playGround')
     showElement('scorePage')
     const finalScore = getValue('score');
