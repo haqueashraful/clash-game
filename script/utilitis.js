@@ -51,10 +51,10 @@ function getARandomAlphabet(){
 }
 
 function gameOver(){
-    
+    document.removeEventListener('keyup', keyUpEvent);
+
     hideElement('playGround')
     showElement('scorePage')
-    
     const finalScore = getValue('score');
     setValue('final-score', finalScore)
     const lastElement = getTextById('random-alpha');

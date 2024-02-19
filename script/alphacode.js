@@ -1,9 +1,11 @@
-function play(pera1, pera2){
+const audio = new Audio();
+let isPlayClicked = true;
+
+function play(){
+    // if(isPlayClicked == false) return;
     hideElement('homePage')
     hideElement("scorePage")
     showElement('playGround')
-
-
     setValue("life", 5)
     setValue('score', 0);
     gameStart()
@@ -11,11 +13,10 @@ function play(pera1, pera2){
 
 
 function gameStart(){
+    document.addEventListener('keyup', keyUpEvent);
     const alphabet = getARandomAlphabet();
-
     const currentAlphabet = document.getElementById('random-alpha')
     currentAlphabet.innerText = alphabet;
-
     setBackgroundColorById(alphabet);
 }
 
@@ -34,17 +35,19 @@ function keyUpEvent(e){
 
        const value = getValue("score")
 
-        const score = value + 1;
+        const score = value + 5;
 
         setValue('score', score);
-
+        audio.src = '../audio/success.wav'
+        audio.play();
        gameStart();
        removeBackgroundColorById(pressedKey)
     }
     else{
         console.log('lose')
         const value = getValue('life')
-
+        audio.src = '../audio/lose.wav'
+        audio.play();
         const life = value - 1;
         setValue('life', life);
 
@@ -55,4 +58,3 @@ function keyUpEvent(e){
     }
 }
 
-document.addEventListener('keyup', keyUpEvent);
